@@ -1,4 +1,5 @@
-import { createStore, combineReducers } from 'redux';
+import { createStore, combineReducers, applyMiddleware } from 'redux';
+import { createLogger } from "redux-logger";
 
 const productReducer = (state = {
     product: 'Chair',
@@ -42,12 +43,22 @@ const dealerReducer = (state = {
             break;
     }
     return state;
+}
+
+const myLogger = (store) => (next) => (action) => {
+    console.log("Log Action=", action);
+    next(action);
 };
 
-const store = createStore(combineReducers({productReducer, dealerReducer}));
+const store = createStore(
+    combineReducers({productReducer, dealerReducer}),
+    {},
+    applyMiddleware(createLogger())
+    //applyMiddleware(myLogger, createLogger())
+);
 
 store.subscribe (() => {
-    console.log("store changed=", store.getState());
+    //console.log("store changed=", store.getState());
 })
 
 store.dispatch({type: "INCREASE_PRICE", value: 100});

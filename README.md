@@ -10,6 +10,13 @@ Steps to download and execute:
 Note: To try out different topics comment / uncomment imports from index.js.
 
 This is an independent module and following is covered:
-1. State maintenance using reducers and redux store => single_reducer.js
-2. Using multiple reducers
-3. 
+1. single_reducer.js:
+    + State is mutable object
+    + State is maintained using single reducer and published using redux store
+2. multiple_reducer.js:
+    + State is immutable object
+    + State is maintained using multiple reducers and published using redux store
+3. redux_middleware.js:
+    + Redux middleware gets called between Action and Reducers, so the flow diagram can be depicted as:
+        App View --(dispatches)--> Action ----> Middleware ----> Reducers ----> Store ----> Subscribed App View
+        
