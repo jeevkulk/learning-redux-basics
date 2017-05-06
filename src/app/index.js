@@ -1,4 +1,3 @@
-import React from 'react'
-import client from './components/client'
+//import { } from './single_reducer';
+import { } from './multiple_reducers';
 
-export { client }
