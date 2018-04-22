@@ -7,7 +7,7 @@ Steps to download and execute:
 4. Run `npm start`
 5. Then open localhost:8080 in a browser and view the console to check how it works 
 
-Note: To try out different topics comment / uncomment imports from index.js.
+Note: To try out different topics comment / uncomment imports from app.js.
 
 This is an independent module and following is covered:
 1. single_reducer.js:

@@ -1,9 +1,11 @@
 import { createStore } from 'redux';
 
-const reducer = function reducer(state = {
+const initialState = {
     product: 'Chair',
     price: 1000,
-}, action) {
+}
+
+const reducer = function reducer(state = initialState, action) {
 
     if(action.type === 'INCREASE_PRICE') {
         return {
@@ -23,9 +25,9 @@ const reducer = function reducer(state = {
 const store = createStore(reducer);
 
 store.subscribe (() => {
-    console.log("store changed=", store.getState());
+    console.log('state', store.getState());
 })
 
-store.dispatch({type: "INCREASE_PRICE", value: 100});
-store.dispatch({type: "DECREASE_PRICE", value: 200});
+store.dispatch({type: 'INCREASE_PRICE', value: 100});
+store.dispatch({type: 'DECREASE_PRICE', value: 200});
 
