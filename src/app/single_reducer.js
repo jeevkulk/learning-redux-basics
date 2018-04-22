@@ -28,6 +28,7 @@ store.subscribe (() => {
     console.log('state', store.getState());
 })
 
+console.log('initial state', store.getState());
 store.dispatch({type: 'INCREASE_PRICE', value: 100});
 store.dispatch({type: 'DECREASE_PRICE', value: 200});
 
