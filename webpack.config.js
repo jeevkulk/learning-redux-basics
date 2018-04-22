@@ -4,11 +4,14 @@ var DIST_DIR = path.resolve(__dirname, "dist");
 var SRC_DIR = path.resolve(__dirname, "src");
 
 var config = {
-    entry: SRC_DIR + "/app/index.js",
+    entry: SRC_DIR + "/app/app.js",
     output: {
         path: DIST_DIR + "/app",
-        filename: "bundle.js",
+        filename: "app.bundle.js",
         publicPath: "/app"
+    },
+    devServer: {
+        contentBase: SRC_DIR
     },
     module :{
         rules:[
@@ -21,7 +24,8 @@ var config = {
                 exclude: /(node_modules|bower_components)/
             }
         ]
-    }
+    },
+    mode: "development"
 };
 
 module.exports = config;
