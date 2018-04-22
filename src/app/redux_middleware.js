@@ -1,10 +1,17 @@
 import { createStore, combineReducers, applyMiddleware } from 'redux';
 import { createLogger } from "redux-logger";
 
-const productReducer = (state = {
+var initialProductState = {
     product: 'Chair',
     price: 1000,
-}, action) => {
+}
+
+var initialDealerState = {
+    name: 'Super Shoppie',
+        numberOfProducts: 500,
+}
+
+const productReducer = (state = initialProductState, action) => {
 
     switch(action.type){
         case 'INCREASE_PRICE':
@@ -23,10 +30,7 @@ const productReducer = (state = {
     return state;
 }
 
-const dealerReducer = (state = {
-    name: 'Super Shoppie',
-    numberOfProducts: 500,
-}, action) => {
+const dealerReducer = (state = initialDealerState, action) => {
 
     switch (action.type) {
         case 'INCREASE_PRODUCTS':
@@ -61,8 +65,8 @@ store.subscribe (() => {
     //console.log("store changed=", store.getState());
 })
 
+console.log("initial state=", store.getState());
 store.dispatch({type: "INCREASE_PRICE", value: 100});
 store.dispatch({type: "DECREASE_PRICE", value: 200});
 store.dispatch({type: "INCREASE_PRODUCTS", value: 200});
 store.dispatch({type: "DECREASE_PRODUCTS", value: 200});
-
